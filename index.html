@@ -100,12 +100,25 @@
     .entry p {
       font-size: 1rem;
       margin: 5px 0;
-      line-height: 1.6;
+	  display: flex;
+      flex-wrap: wrap; /* Ensure child elements like buttons wrap properly */
+      align-items: center; /* Align text and buttons vertically */
+      gap: 5px;
+    }
+	
+	.entry p strong {
+      flex-shrink: 0; /* Prevent the "strong" label from shrinking with long links */
+    }
+
+    .entry p a {
+      flex-grow: 1; /* Allow the link to take up remaining space */
     }
 
     .entry a {
       color: #04AA6D;
       text-decoration: none;
+      word-break: break-word; /* Break long links */
+      overflow-wrap: break-word; /* Ensure proper wrapping */
     }
 
     .entry a:hover {
@@ -136,7 +149,9 @@
     }
 
     .search-bar {
-      margin: 20px 0;
+	  display: flex;
+      justify-content: center;
+      margin: 20px auto;
       width: 90%;
       max-width: 600px;
     }
